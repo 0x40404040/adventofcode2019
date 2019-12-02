@@ -1,0 +1,26 @@
+[package]
+name = "day_01"
+version = "0.1.0"
+authors = ["0x40404040"]
+edition = "2018"
+
+
+[[bin]]
+name = "day_01"
+path = "src/main.rs"
+
+[lib]
+name = "day_01"
+path = "src/lib.rs"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+common = {path= "../common"}
+
+[dev-dependencies]
+criterion = "0.3.0"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
+
