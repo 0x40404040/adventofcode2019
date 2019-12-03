@@ -32,6 +32,13 @@ pub fn total_fuel_recursive(mass: u32) -> u32 {
 	req_fuel + total_fuel_recursive(req_fuel)
 }
 
+#[allow(unused)]
+pub fn total_fuel_iter(mass: u32) -> u32 {
+	std::iter::successors(Some(mass), |m| (m / 3).checked_sub(2))
+		.skip(1)
+		.sum()
+}
+
 pub fn total_fuel(mass: u32) -> u32 {
 	let mut fuel_sum = 0;
 	let mut fuel = required_fuel(mass);
@@ -60,6 +67,14 @@ mod tests {
 		assert_eq!(total_fuel_recursive(14), 2);
 		assert_eq!(total_fuel_recursive(1969), 966);
 		assert_eq!(total_fuel_recursive(100756), 50346);
+	}
+
+	#[test]
+	fn test_total_fuel_iter() {
+		assert_eq!(total_fuel_iter(12), 2);
+		assert_eq!(total_fuel_iter(14), 2);
+		assert_eq!(total_fuel_iter(1969), 966);
+		assert_eq!(total_fuel_iter(100756), 50346);
 	}
 
 	#[test]
