@@ -15,9 +15,13 @@ pub mod part {
 			}
 		}
 	}
+
+	/// returns true if part one is given as command line argument
+	pub fn is_part_one() -> bool {
+		one_or_two(true, false)
+	}
 }
 
-
 pub mod reexport {
-    pub use itertools;
+	pub use itertools;
 }
